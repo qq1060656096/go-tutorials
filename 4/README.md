@@ -1,4 +1,4 @@
-## 控制语句if、switch、for
+## 4. 控制语句if、switch、for
 
 ```go
 1. if语句
