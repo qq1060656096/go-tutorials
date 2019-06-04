@@ -1,17 +1,12 @@
-## 测试
-> go语言 testing 包提供自动测试支持, 它与"go test"命令一起使用, 该命令自动执行*_test.go源文件中以Test或者Benchmark前缀的函数
+## 常用命令
 
-
-```go
-1. Test功能测试函数
-2. Benchmark基准测试函数
-3. 示例函数
-
+```sh
+1. go run
+2. go build
+3. go test
 ```
 
-###### 1. Test功能测试函数
-> 1. 每个测试文件都必须导入testing包
-> 2. 功能测试函数必须以Test为开头(前缀)
+###### 3. go test
 
 ```sh
 go test
