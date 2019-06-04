@@ -8,6 +8,9 @@
 2. Benchmark基准测试函数
 3. Example示例函数
 4. 使用流行开源的测试包(github.com/stretchr/testify)
+5. 打桩测试
+6. 代码覆盖率
+7. 性能剖析
 ```
 
 ###### 1. Test功能测试函数
