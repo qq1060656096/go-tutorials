@@ -1,8 +1,10 @@
+// examples/demo1/login_test.go
 package demo1
 
 import "testing"
 
-func TestLogin1(t *testing.T) {
+// 成功的测试
+func TestLoginSuccess(t *testing.T) {
 	user := "root"
 	pass := "123456"
 	isLogin := Login(user, pass)
@@ -12,7 +14,8 @@ func TestLogin1(t *testing.T) {
 	}
 }
 
-func TestLogin2(t *testing.T) {
+// 失败的测试
+func TestLoginFail(t *testing.T) {
 	user := "admin"
 	pass := "123456"
 	isLogin := Login(user, pass)
