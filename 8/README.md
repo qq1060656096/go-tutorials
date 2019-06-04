@@ -124,7 +124,25 @@ func ExampleXxx() {
 # 进入目录
 cd examples/demo3
 # 运行所有基准测试
-go test -bench=. -v
+go test -v
 
 ```
 ![示例函数执行结果](./images/examples.demo3.run.example.result.jpg)
+
+###### 4. 使用流行开源的测试包(github.com/stretchr/testify)
+
+**特点**
+> 1. 快速断言(assertions)
+> 2. 打桩(mocking)
+> 3. 套件(suite)和功能(function)
+
+**示例**
+> 代码请看本目录下examples/demo4包
+```sh
+# 进入目录
+cd examples/demo4
+# 运行所有基准测试
+go test -v
+
+```
+![第三方测试包断言结果](./images/examples.demo4.other_test.result.jpg)
