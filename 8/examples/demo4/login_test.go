@@ -1,8 +1,8 @@
 package demo4
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestLogin(t *testing.T) {

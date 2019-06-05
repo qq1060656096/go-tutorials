@@ -17,7 +17,6 @@ func TestLoginSuccess(t *testing.T) {
 	}
 }
 
-
 // 基准测试
 func BenchmarkLogin(b *testing.B) {
 	for i := 0; i < b.N; i++ {
