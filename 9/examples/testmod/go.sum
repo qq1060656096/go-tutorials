@@ -1,2 +1,4 @@
-github.com/qq1060656096/hellomod v0.0.1 h1:dDcwfUydjVwYknzju7lb/TuJ4koKvC6u7s7fH+HwUpE=
-github.com/qq1060656096/hellomod v0.0.1/go.mod h1:TOAQUVNcJP1uykhVNbIcfTsdYdjs2zrIYEtpAGWpcqg=
+github.com/qq1060656096/hellomod v1.0.0 h1:O66u/mTlM4cHHdwuKPNpUBmJor2XOv0Wa0j+qfOwAN4=
+github.com/qq1060656096/hellomod v1.0.0/go.mod h1:TOAQUVNcJP1uykhVNbIcfTsdYdjs2zrIYEtpAGWpcqg=
+github.com/qq1060656096/hellomod/v3 v3.0.0 h1:E3z08W3DC5gD2sVdkCbUP46ZZbJAVoMdGSfgpCsHNYE=
+github.com/qq1060656096/hellomod/v3 v3.0.0/go.mod h1:3Z1iHoGBdxR0AslWZT78w/OduKVMGokXP2fHBUyusSg=

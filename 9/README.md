@@ -1,6 +1,8 @@
 ## go语言 包(mod)管理
 > Go语言从诞生之初就一直有个被诟病的问题: 缺少一个行之有效的“官方”包依赖管理工具. 其原因是在Google内部，所有人都是在一个代码库上进行开发的,因此并不是非常需要.但是Go语言变成一个社区化的工程语言之后,这个问题被放大了.
 
+[参考文章](https://www.melvinvivas.com/go-version-1-11-modules/)
+
 ```
 1. 模块是相关Go包的集合(即一个模块可以包含多个package,一个包package包含多个go源文件)
 2. go命令直接支持使用模块
@@ -8,7 +10,19 @@
 4. 模块取代了旧的基于GOPATH的方法来指定
 5. 有利于程序维护
 6. 提高代码重用性(供他人使用)
-7. 多版本共存(即同时使用同一个模块多个版本,例如为了更好的升级模块,我们先修改1小部分代码用新的版本,当模块新版本稳定后,我们在全面升级)
+7. 一个模块多版本共存(即同时使用同一个模块多个版本,例如为了更好的升级模块,我们先修改一小部分代码用新的版本,当模块新版本稳定后,我们在全面升级)
+```
+
+**go mod命令**
+```sh
+download    download modules to local cache (下载依赖的module到本地cache))
+edit        edit go.mod from tools or scripts (编辑go.mod文件)
+graph       print module requirement graph (打印模块依赖图))
+init        initialize new module in current directory (在当前⽂件夹下初始化⼀个新的模块, 创建go.mod⽂件))
+tidy        add missing and remove unused modules (增加缺少的module，删除未⽤的module)
+vendor      make vendored copy of dependencies (将依赖复制到vendor下)
+verify      verify dependencies have expected content (校验依赖的HASH码)
+why         explain why packages or modules are needed (解释为什么需要依赖)
 ```
 
 ### 1. 设置 GO111MODULE
@@ -27,13 +41,9 @@
 3. 然后在项目目录下运行命令: "go build" 、"go test" 或 "go run"执行时，会自己去修改go.mod文件，生成"go.sum"文件
 ```
 
-**go模块示例**
-> 1. 创建模块目录并进入: mkdir examples/hellomod && cd examples/hellomod
-> 2. 创建模块: go mod init "hellomod"
-> 3. 创建模块
-> 3. 提交代码到github上
+### 3. go mod模块示例
 
-> 2. 创建模块 hellomod: go mod init "hellomod"
+###### 3.1 创建模块 hellomod: go mod init "hellomod"
 ```sh
 # 1. 在github上创建仓库 hellomod
 # 为什么要创建创库, 为了其他人也可以使用这个模块
@@ -69,7 +79,7 @@ module github.com/qq1060656096/hellomod
 # 里面只有一行, 就定义的模块名字
 ```
 
-> hellomod模块目录下,创建hello.go文件, 并增加以下内容
+###### 3.2 hellomod模块目录下,创建hello.go文件, 并增加以下内容
 ```go
 package hellomod
 
@@ -78,7 +88,7 @@ func Hello() string {
 }
 ```
 
-> hellomod模块目录下,创建hello_test.go文件, 并增加以下内容
+###### 3.3 hellomod模块目录下,创建hello_test.go文件, 并增加以下内容
 ```go
 package hellomod
 
@@ -92,14 +102,14 @@ func TestHello(t *testing.T) {
 }
 ```
 
-> hellomod模块目录下,运行模块测试 "go test -v"会输出以下内容
+###### 3.4 hellomod模块目录下,运行模块测试 "go test -v"会输出以下内容
 ```sh
 === RUN   TestHello
 --- PASS: TestHello (0.00s)
 PASS
 ok      github.com/qq1060656096/hellomod        0.004s
 ```
-> 提交 hellomod 模块代码到github
+###### 3.5 提交 hellomod 模块代码到github
 ```sh
 # 提交代码到github
 git add .
@@ -107,7 +117,7 @@ git commit -m 'aaa: go hello模块第一次提交'
 git push origin master
 ```
 
-# 回到examples目录并创建一个模块测试 testmod
+###### 3.6 回到examples目录并创建一个模块测试 testmod
 ```sh
 # 回到 examples 并创建 testmod 目录, 然后在进入 testmod 目录
 cd ../ && mkdir testmod && cd testmod
@@ -116,7 +126,7 @@ go mod init "testmod"
 
 ```
 
-### testmod 模块中创建 main.go 文件
+###### 3.7 testmod 模块中创建 main.go 文件
 
 ```go
 package main
@@ -131,13 +141,123 @@ func main()  {
 }
 ```
 
-### testmod 模块中执行命令: go run main.go
+###### 3.8 testmod 模块中执行命令: go run main.go
 
 ```sh
 
 # go run main.go
 # 命令会输出以下内容
-go: finding github.com/qq1060656096/hellomod v0.0.1
-go: downloading github.com/qq1060656096/hellomod v0.0.1
+go: finding github.com/qq1060656096/hellomod
+go: downloading github.com/qq1060656096/hellomod
 Hello World!
+```
+
+## 4. 如何升级模块版本
+
+###### 4.1 修改 hellomod 模块 hello.go文件
+```sh
+package hellomod
+
+func Hello() string {
+	return "v2: Hello World!"
+}
+```
+###### 4.2 修改 hellomod 模块 hello_test.go 文件
+```go
+package hellomod
+
+
+import "testing"
+
+func TestHello(t *testing.T) {
+	want := "v2: Hello World!"
+	if Hello() != want {
+		t.Errorf("Hello() != %s", want)
+	}
+}
+```
+
+###### 4.3 提交 hellomod 模块代码
+```sh
+git add .
+git commit -m "hellomod v2版本提交"
+git tag -m "v2.0.0" v2.0.0
+git push origin master --tags
+```
+
+###### 4.4 进入 testmod 模块目录, 升级模块
+```sh
+cd ../ && cd testmod
+# 更新模块, 注意更新模块会更改 go.mod 文件对应模块的版本, 当然你也可以手动编辑版本号
+go mod edit -require github.com/qq1060656096/hellomod@v2.0.0
+
+go run main.go
+# 命令会输出: "v2: Hello World!"
+# 现在 hellomod 模块以及使用v2.0.0的代码了
+```
+
+## 5. 一个模块多版本共存
+**注意**
+> 为了更好的升级模块,我们先修改一小部分代码用新的版本,当模块新版本稳定后,我们在全面升级
+
+###### 5.1 修改 hellomod 模块 go.mod 文件
+```sh
+module github.com/qq1060656096/hellomod/v3
+```
+
+###### 5.2 修改 hellomod 模块 hello.go 文件
+
+```sh
+package hellomod
+
+func Hello() string {
+	return "v2: Hello World!"
+}
+
+func HelloV3() string {
+	return "v3.HelloV3: Hello World!"
+}
+```
+
+###### 5.3 提交 hellomod 模块代码
+```sh
+git checkout -b v3
+git add .
+git commit -m "hellomod v3版本提交"
+git push origin v3
+git tag -m "v3.0.0" v3.0.0
+git push origin master --tags
+```
+
+###### 5.3 testmod 模块中修改 main.go 文件
+
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/qq1060656096/hellomod"
+	hellomodV3 "github.com/qq1060656096/hellomod/v3"
+)
+
+func main()  {
+	fmt.Println(hellomod.Hello())
+	fmt.Println(hellomodV3.HelloV3())
+}
+```
+
+###### 5.4 testmod 模块中执行命令: go run main.go
+
+```sh
+cd ../ && cd testmod
+# 添加v3版本模块, 注意更新模块会更改 go.mod 文件对应模块的版本, 当然你也可以手动编辑版本号
+go mod edit -require github.com/qq1060656096/hellomod/v3@v3.0.0
+# 如果你没有执行 "go mod edit -require github.com/qq1060656096/hellomod/v3@v3.0.0" 命令, go 在构建的时候也会自动查到依赖
+```
+
+**go run main.go执行结果**
+```go
+$ go run main.go                                                 
+Hello World!
+v3.HelloV3: Hello World!
 ```
