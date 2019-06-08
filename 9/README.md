@@ -1,8 +1,17 @@
 ## go语言 包(mod)管理
 > Go语言从诞生之初就一直有个被诟病的问题: 缺少一个行之有效的“官方”包依赖管理工具. 其原因是在Google内部，所有人都是在一个代码库上进行开发的,因此并不是非常需要.但是Go语言变成一个社区化的工程语言之后,这个问题被放大了.
 
+```go
+1. 设置 GO111MODULE
+2. go模块使用说明
+3. go mod模块示例
+4. 如何升级模块版本
+5. 一个模块多版本共存
+```
+
 [参考文章](https://www.melvinvivas.com/go-version-1-11-modules/)
 
+**go mod模块特点**
 ```
 1. 模块是相关Go包的集合(即一个模块可以包含多个package,一个包package包含多个go源文件)
 2. go命令直接支持使用模块
@@ -25,13 +34,7 @@ verify      verify dependencies have expected content (校验依赖的HASH码)
 why         explain why packages or modules are needed (解释为什么需要依赖)
 ```
 
-```go
-1. 设置 GO111MODULE
-2. go模块使用说明
-3. go mod模块示例
-4. 如何升级模块版本
-5. 一个模块多版本共存
-```
+
 
 ### 1. 设置 GO111MODULE
 ```sh
