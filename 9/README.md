@@ -18,25 +18,33 @@
 download    download modules to local cache (下载依赖的module到本地cache))
 edit        edit go.mod from tools or scripts (编辑go.mod文件)
 graph       print module requirement graph (打印模块依赖图))
-init        initialize new module in current directory (在当前⽂件夹下初始化⼀个新的模块, 创建go.mod⽂件))
-tidy        add missing and remove unused modules (增加缺少的module，删除未⽤的module)
+init        initialize new module in current directory (在当前⽂件夹下初始化⼀个新的模块,创建go.mod⽂件))
+tidy        add missing and remove unused modules (增加缺少的module,删除未⽤的module)
 vendor      make vendored copy of dependencies (将依赖复制到vendor下)
 verify      verify dependencies have expected content (校验依赖的HASH码)
 why         explain why packages or modules are needed (解释为什么需要依赖)
 ```
 
+```go
+1. 设置 GO111MODULE
+2. go模块使用说明
+3. go mod模块示例
+4. 如何升级模块版本
+5. 一个模块多版本共存
+```
+
 ### 1. 设置 GO111MODULE
 ```sh
 可以用环境变量 GO111MODULE 开启或关闭模块支持，它有三个可选值：off、on、auto,默认值是 auto.
-1. GO111MODULE=off 无模块支持，go 会从 GOPATH 和 vendor 文件夹寻找包。
-2. GO111MODULE=on 模块支持，go 会忽略 GOPATH 和 vendor 文件夹,只根据 go.mod 下载依赖.
+1. GO111MODULE=off 无模块支持,go 会从 GOPATH 和 vendor 文件夹寻找包.
+2. GO111MODULE=on 模块支持,go 会忽略 GOPATH 和 vendor 文件夹,只根据 go.mod 下载依赖.
 3. GO111MODULE=auto 在 GOPATH/src 外面且根目录有 go.mod 文件时,开启模块支持.
 
 ```
 
-### 2. 如何使用go模块
+### 2. go模块使用说明
 ```sh
-1. 把项目放到$GOPATH/src之外
+1. GO111MODULE=off, 把项目放到$GOPATH/src之外, 或者设置GO111MODULE=on, 把项目放到任意目录
 2. 在项目目录下创建模块: "go mod init 模块名",创建模块后,会在模块所在的文件夹生成go.mod文件
 3. 然后在项目目录下运行命令: "go build" 、"go test" 或 "go run"执行时，会自己去修改go.mod文件，生成"go.sum"文件
 ```
