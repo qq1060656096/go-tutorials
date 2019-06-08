@@ -7,12 +7,12 @@ import (
 	"net/smtp"
 )
 
-const SenderUser  = "1060656096@qq.com"
+const SenderUser = "1060656096@qq.com"
 const SenderPass = "123456"
 const Hostname = "smtp.qq.com"
 
 // 发送邮件
-var SendLoginEmail = func (user string) {
+var SendLoginEmail = func(user string) {
 	msg := fmt.Sprintf("%s, Welcome to login", user)
 	auth := smtp.PlainAuth("", SenderUser, SenderPass, Hostname)
 	if err := smtp.SendMail(Hostname, auth, SenderUser, []string{user}, []byte(msg)); err != nil {
@@ -28,4 +28,3 @@ func Login(user, pass string) bool {
 	}
 	return false
 }
-
