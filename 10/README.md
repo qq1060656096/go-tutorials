@@ -8,6 +8,9 @@
 ## 1. build 命令
 ```sh
 build 编译包和依赖项
+usage: go build [-o output] [-i] [build flags] [packages]
+ 用法:  go build [-o output] [-i] [build 参数] [包]
+ 可选参数:
     -o 编译单个包才能使用(不能同时对多个代码包进行编译),例如我们经常重新命名可执行文件名字
     -i 标志安装的包是目标的依赖项
     -a 强制重新构建已经更新的包
@@ -41,6 +44,31 @@ go build -o hello.exe  main.go
 go build -n 
 # 答应工作目录
 go build -work 
+```
+
+2. clean 命令
+```sh
+clean 删除执行其他命令时产生的文件、目录和缓存文件.
+    具体地说.clean 会删除从导入路径对应的源码目录中,删除以下这些文件和目录
+        _obj/            old object directory, left from Makefiles
+        _test/           old test directory, left from Makefiles
+        _testmain.go     old gotest file, left from Makefiles
+        test.out         old test log, left from Makefiles
+        build.out        old test log, left from Makefiles
+        *.[568ao]        object files, left from Makefiles
+        DIR(.exe)        from go build
+        DIR.test(.exe)   from go test -c
+        MAINFILE(.exe)   from go build MAINFILE.go
+        *.so             from SWIG
+usage: go clean [clean flags] [build flags] [packages]
+  用法: go clean [clean 参数]   [build参数]   包
+  可选参数:
+    -i 会删除安装当前代码包所有产生的所有文件, 如果当前包是一个普通包(不是main包),则结果文件指的就是在工作区的pkg目录的相应目录下的归档文件.如果当前代码包中只包含一个命令源码文件, 则删除当前目录和在工作区的bin目录下的可执行文件和测试文件.
+    -n 打印clean执行的命令,但不真正执行
+    -r 删除当前代码包和所有的依赖包产生的文件、目录和缓存文件
+    -x 打印clean执行的删除命令
+    -cache 删除所有 go build 的缓存
+    -testcache 删除当前包所有的测试结果
 ```
 
 ###### 3. go test
