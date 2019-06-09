@@ -1,25 +1,25 @@
 ## go 常用命令
 
 ```sh
-1. build 命令 编译包和依赖项
-2. clean 命令 删除对象文件和缓存的文件
-3. doc与godoc 命令 显示包文档
-4. env 命令 打印Go语言的环境信息
-5. fix与go tool fix 命令 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码,升级版本时非常有用
-6. fmt与gofmt 命令 格式化go源文件
-7. generate 命令
-8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
-9. install 命令 编译并安装指定包及它们的依赖包,
-10. list 命令 列出包和模块信息
-11. mod命令 管理模块
-12. run 命令 编译并运行Go程序
-13. test 命令 测试包
-14. tool 命令 运行指定的go工具
-15. version 命令 查看当前go语言版本
-16. vet 命令 报告包中可能出现的错误
+1. build 编译包和依赖项
+2. clean 删除对象文件和缓存的文件
+3. doc与godoc 显示包文档
+4. env 打印Go语言的环境信息
+5. fix与go tool fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码,升级版本时非常有用
+6. fmt与gofmt 格式化go源文件
+7. generate 
+8. get 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
+9. install 编译并安装指定包及它们的依赖包,
+10. list 列出包和模块信息
+11. mod 管理模块
+12. run 编译并运行Go程序
+13. test 测试包
+14. tool 运行指定的go工具
+15. version 查看当前go语言版本
+16. vet 报告包中可能出现的错误
 ```
 
-## 1. build 命令
+## 1. build 编译包和依赖项
 ```sh
 build 编译包和依赖项
 usage: go build [-o output] [-i] [build flags] [packages]
@@ -60,7 +60,7 @@ go build -n
 go build -work 
 ```
 
-## 2. clean 命令
+## 2. clean 删除对象文件和缓存的文件
 ```sh
 clean 删除执行其他命令时产生的文件、目录和缓存文件.
     具体地说.clean 会删除从导入路径对应的源码目录中,删除以下这些文件和目录
@@ -85,7 +85,7 @@ usage: go clean [clean flags] [build flags] [packages]
     -testcache 删除当前包所有的测试结果
 ```
 
-## 3. doc 命令
+## 3. doc 显示包文档
 ```sh
 doc与godoc 显示包或符号的文档, 更多用法请参考(godoc -h)
 usage: go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
@@ -100,7 +100,7 @@ usage: go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
 go doc -c hellomod
 ```
 
-## 4. env 命令
+## 4. env 打印Go语言的环境信息
 
 ```sh
 env 打印Go语言的环境信息
@@ -123,7 +123,7 @@ go env
 go env GOOS
 ```
 
-## 5. fix与go tool fix 命令
+## 5. fix与go tool fix
 ```sh
 fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码
 usage: go fix [packages]
@@ -138,7 +138,7 @@ usage: go tool fix [-diff] [-r fixname,...] [-force fixname,...] [path ...]
     -force string 使用此参数后, 即使源码文件中的代码已经与Go语言的最新版本相匹配, 也会强行执行指定的修正操作.该参数值就是需要强行执行的修正操作的名称,多个名称之间用英文半角逗号分隔
     -r string 只对目标源码文件做有限的修正操作.该参数的值即为允许的修正操作的名称.多个名称之间用英文半角逗号分隔
 ```
-## 6. fmt与gofmt 命令
+## 6. fmt与gofmt 格式化go源文件
 > Go 开发团队不想要 Go 语言像许多其它语言那样总是在为代码风格而引发无休止的争论,浪费大量宝贵的开发时间,因此他们制作了一个工具:go fmt（gofmt）
 ```sh
 fmt与gofmt 命令 格式化go源文件,fmt命令实际"gofmt -l -w"命令之上做了一层包装,我们一般使用
@@ -174,7 +174,7 @@ gofmt -r "hellomod.Hello -> hellomod.HelloNew" -w ./
 ```
 
 
-## 8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
+## 8. get 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
 ```sh
 get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
 usage: go get [-d] [-f] [-t] [-u] [-v] [-fix] [-insecure] [build flags] [packages]
@@ -194,7 +194,7 @@ usage: go get [-d] [-f] [-t] [-u] [-v] [-fix] [-insecure] [build flags] [package
 go get github.com/donvito/hellomod
 ```
 
-## 9. install 命令 编译并安装指定包及它们的依赖包,
+## 9. install 编译并安装指定包及它们的依赖包,
 ```sh
 install 编译并安装指定包及它们的依赖包,先生成中间文件(可执行文件或者.a包),然后把编译好的结果移到$GOPATH/pkg或者$GOPATH/bin
 usage: go install [-i] [build flags] [packages]
@@ -207,7 +207,7 @@ usage: go install [-i] [build flags] [packages]
 go install github.com/gin-gonic/gin
 ```
 
-## 10. list 命令 列出包和模块信息
+## 10. list 列出包和模块信息
 ```sh
 list 列出包和模块信息
 usage: go list [-f format] [-json] [-m] [list flags] [build flags] [packages]
@@ -237,7 +237,7 @@ go list -m -json testmod
 
 ```
 
-## 11. mod命令 管理模块
+## 11. mod 管理模块
 
 ```sh
 mod 管理模块
@@ -344,7 +344,7 @@ Usage: go mod <command> [arguments]
             -m 
 ```
 
-## 12. run 命令 编译并运行Go程序
+## 12. run 编译并运行Go程序
 
 ```sh
 run 命令 编译并运行Go程序
@@ -362,7 +362,7 @@ go run -race main.go
 ```
 
 
-## 13. test 命令 测试包
+## 13. test 测试包
 
 ```sh
 go test 用于测试包
@@ -417,7 +417,7 @@ usage: go test [build/test flags] [packages] [build/test flags & test binary fla
             go test -v
 ```
 
-## 14. tool 命令 运行指定的go工具
+## 14. tool 运行指定的go工具
 
 ```sh
 tool 命令 运行指定的go工具
@@ -433,7 +433,7 @@ go tool -n vet
 ```
 
 
-## 15. version 命令 查看当前go语言版本
+## 15. version 查看当前go语言版本
 
 ```sh
 version 查看go当前的版本
@@ -443,7 +443,7 @@ usage: go version
 go version 
 ```
 
-## 16. vet 命令 报告包中可能出现的错误
+## 16. vet 报告包中可能出现的错误
 ```sh
 vet 静态检查工具,报告包中可能出现的错误, 开发时建议使用这个工具(fmt printf函数参数不对或者声明结构体 tag声明不对等)
 usage: go vet [-n] [-x] [build flags] [vet flags] [packages]
