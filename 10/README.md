@@ -11,7 +11,7 @@
 8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
 9. install 命令 编译并安装指定包及它们的依赖包,
 10. list 命令 列出包和模块信息
-11. mod 命令
+11. mod命令 管理模块
 12. run 命令
 13. test 命令
 14. tool 命令
@@ -235,6 +235,113 @@ go list -m -json testmod
         "GoMod": "/Users/zhaoweijie/go/src/business-card/docker-compose/go-tutorials/9/examples/testmod/go.mod"
 }
 
+```
+
+## 11. mod命令 管理模块
+
+```sh
+mod 管理模块
+Usage: go mod <command> [arguments]
+ 用法: go mod <命令> [参数]
+ 可选命令<command>: go help mod <command>
+    download    下载模块到本地缓存
+        usage: go mod download [-json] [modules]
+          用法:
+        可选参数:
+            -json 
+        示例:
+            # 下载模块,以json格式打印模块信息
+            go mod download -json github.com/qq1060656096/hellomod   
+            # json格式打印 github.com/qq1060656096/hellomod 模块信息
+            {
+                    "Path": "github.com/qq1060656096/hellomod",
+                    "Version": "v1.0.0",
+                    "Info": "/Users/zhaoweijie/go/pkg/mod/cache/download/github.com/qq1060656096/hellomod/@v/v1.0.0.info",
+                    "GoMod": "/Users/zhaoweijie/go/pkg/mod/cache/download/github.com/qq1060656096/hellomod/@v/v1.0.0.mod",
+                    "Zip": "/Users/zhaoweijie/go/pkg/mod/cache/download/github.com/qq1060656096/hellomod/@v/v1.0.0.zip",
+                    "Dir": "/Users/zhaoweijie/go/pkg/mod/github.com/qq1060656096/hellomod@v1.0.0",
+                    "Sum": "h1:O66u/mTlM4cHHdwuKPNpUBmJor2XOv0Wa0j+qfOwAN4=",
+                    "GoModSum": "h1:TOAQUVNcJP1uykhVNbIcfTsdYdjs2zrIYEtpAGWpcqg="
+            }
+
+
+    edit   提供命令来编辑go.mod文件, 主要用于工具或脚本
+        usage: go mod edit [editing flags] [go.mod]
+         用法: go mod edit [editing flags] [go.mod]
+        可选参数:
+            -fmt 只会格式化go.mod文件
+            -module 更改模块路径
+            -require=path@version 添加模块依赖
+                示例:
+                    # 添加hellomod模块v1.0.0版本
+                    go mod edit -require=github.com/qq1060656096/hellomod@v1.0.0
+            -droprequire=path 删除模块依赖
+                示例:
+                    # 删除hellomod模块
+                    go mod edit -droprequire=github.com/qq1060656096/hellomod
+            -exclude=path@version 排查模块
+                # 排除hellomod模块v1.0.0版本
+                go mod edit -exclude=github.com/qq1060656096/hellomod@v1.0.0
+            -dropexclude=path@version 删除排除的模块(恢复排除的模块)
+                # 恢复排除hellomod模块v1.0.0版本
+                go mod edit -dropexclude=github.com/qq1060656096/hellomod@v1.0.0
+            -replace=old[@v]=new[@v] 替换模块
+                示例:
+                    # hellomod模块v1.0.0版本替换成v2.0.0版本
+                    go mod edit -replace=github.com/qq1060656096/hellomod@v1.0.0=github.com/qq1060656096/hellomod@v2.0.0
+            -dropreplace=old[@v]
+            -print 打印结果,不会操作go.mod文件
+            -json 以json格式打印结果,不会操作go.mod文件
+
+
+    graph   打印模块需求图
+        usage: go mod graph
+        用法: go mod graph
+
+
+    init    在当前⽂件夹下初始化⼀个新的模块(创建go.mod⽂件)
+        usage: go mod init [module]
+        用法: go mod init [模块名]
+        示例:
+            # 创建“github.com/qq1060656096/hellomod”模块
+            go mod init github.com/qq1060656096/hellomod
+
+
+    tidy    整理模块(增加缺少的模块,删除未⽤的模块)
+        usage: go mod tidy [-v]
+        用法: go mod tidy [-v]
+        可选参数:
+            -v 打印已经删除的模块信息
+
+        示例:
+            # 整理模块,并打印已经删除的模块
+            go mod tidy -v
+
+
+    vendor  将依赖复制到vendor下
+        usage: go mod vendor [-v]
+        用法: go mod vendor [-v]
+        可选参数:
+            -v 打印复制到vendor的所有包和模块
+        示例:
+            # 打印复制到vendor的所有包和模块
+            go mod vendor -v
+
+
+    verify  校验依赖的HASH码,验证检查当前模块的依赖, 如果依赖本有更改就使用之前的, 如果所有模块都没有更改,就打印"all modules verified
+", 否则就报告(打印)已更改的模块
+        usage: go mod verify
+        用法: go mod verify
+        示例:
+            go mod verify
+
+
+    why     解释为什么需要依赖
+        usage: go mod why [-m] [-vendor] packages...
+        用法: go mod why [-m] [-vendor] packages...
+        可选参数
+            -vendor
+            -m 
 ```
 
 
