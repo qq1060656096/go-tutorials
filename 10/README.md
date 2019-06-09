@@ -12,8 +12,8 @@
 9. install 命令 编译并安装指定包及它们的依赖包,
 10. list 命令 列出包和模块信息
 11. mod命令 管理模块
-12. run 命令
-13. test 命令
+12. run 命令 编译并运行Go程序
+13. test 命令 测试包
 14. tool 命令
 15. version 命令
 16. vet 命令
@@ -344,11 +344,29 @@ Usage: go mod <command> [arguments]
             -m 
 ```
 
-
-## 13. go test
+## 12. run 命令 编译并运行Go程序
 
 ```sh
-go test
+run 命令 编译并运行Go程序
+usage: go run [build flags] [-exec xprog] package [arguments...]
+用法: go run [编译 flags] [-exec xprog] 包 [arguments...]
+可选参数: 其他参数请参考(go help build)
+    -exec 
+
+示例:
+# 运行maing.go
+go run main.go
+
+# 运行maing.go并开启竞态检测(开发时建议开启这个选项)
+go run -race main.go
+```
+
+
+## 13. test 命令 测试包
+
+```sh
+go test 用于测试包
+usage: go test [build/test flags] [packages] [build/test flags & test binary flags]
     -c 把包编译二进制测试包, 注意不会运行, 需要你手动执行二进制测试
         示例: 
             go test -c package_import_path
