@@ -1,4 +1,4 @@
-## go 常用命令
+## go 命令
 
 ```sh
 1. build 编译包和依赖项
@@ -451,10 +451,10 @@ link
 nm
 objdump
 pack
-pprof
+pprof 可以帮助开发者快速分析及定位各种性能问题,如 CPU 消耗、内存分配及阻塞分析
 test2json
 trace
-vet
+vet 报告包中可能出现的错误,开发时建议使用这个工具(fmt printf函数参数不对或者声明结构体 tag声明不对等)
 ```
 
 
