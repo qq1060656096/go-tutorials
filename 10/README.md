@@ -4,6 +4,19 @@
 1. build 命令 编译包和依赖项
 2. clean 命令 删除对象文件和缓存的文件
 3. doc 命令 显示包文档
+4. env 命令 打印Go语言的环境信息
+5. fix 命令
+6. fmt 命令
+7. generate 命令
+8. get 命令
+9. install 命令
+10. list 命令
+11. mod 命令
+12. run 命令
+13. test 命令
+14. tool 命令
+15. version 命令
+16. vet 命令
 ```
 
 ## 1. build 命令
@@ -82,11 +95,36 @@ usage: go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
     -cmd 打印 main 包文档, 默认情况下不会打印 main 包文档
     -u 打印出所有的文档(同事包含可导出和不可导出实体)
 
+示例:
 # 显示 hellomod 包文档,(注意 hellomod 和 Hellomod是不同的包)
 go doc -c hellomod
 ```
 
-###### 3. go test
+## 4. env 命令
+
+```sh
+env 打印Go语言的环境信息
+usage: go env [-json] [var ...]
+ 用法: go env [-json] [变量 ...]
+ 可选参数:
+    -json 以json格式打印环境信息
+
+示例:
+# 以json格式打印所有环境信息
+go env -json 
+
+# 以json格式只打印 GOOS 程序构建环境的目标操作系统
+go env -json GOOS
+
+# 打印所有环境信息
+go env
+
+# 只打印 GOOS 程序构建环境的目标操作系统
+go env GOOS
+```
+
+
+## 13. go test
 
 ```sh
 go test
