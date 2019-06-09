@@ -9,7 +9,7 @@
 6. fmt与gofmt 命令 格式化go源文件
 7. generate 命令
 8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
-9. install 命令
+9. install 命令 编译并安装指定包及它们的依赖包,
 10. list 命令
 11. mod 命令
 12. run 命令
@@ -194,8 +194,18 @@ usage: go get [-d] [-f] [-t] [-u] [-v] [-fix] [-insecure] [build flags] [package
 go get github.com/donvito/hellomod
 ```
 
+## 9. install 命令 编译并安装指定包及它们的依赖包,
+```sh
+install 编译并安装指定包及它们的依赖包,先生成中间文件(可执行文件或者.a包),然后把编译好的结果移到$GOPATH/pkg或者$GOPATH/bin
+usage: go install [-i] [build flags] [packages]
+ 用法: go install [-i] [编译 flags] [包]
+ 可选参数:
+    -i 
 
-
+示例:
+# 安装包
+go install github.com/gin-gonic/gin
+```
 
 
 
