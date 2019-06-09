@@ -14,9 +14,9 @@
 11. mod命令 管理模块
 12. run 命令 编译并运行Go程序
 13. test 命令 测试包
-14. tool 命令
-15. version 命令
-16. vet 命令
+14. tool 命令 运行指定的go工具
+15. version 命令 查看当前go语言版本
+16. vet 命令 报告包中可能出现的错误
 ```
 
 ## 1. build 命令
@@ -415,4 +415,46 @@ usage: go test [build/test flags] [packages] [build/test flags & test binary fla
     -v 详细输出运行时记录所有的测试
         示例:
             go test -v
+```
+
+## 14. tool 命令 运行指定的go工具
+
+```sh
+tool 命令 运行指定的go工具
+usage: go tool [-n] command [args...]
+用法: go tool [-n] 命令 [args...]
+可选参数:
+    -n 打印要执行的命令, 但是不真正的执行
+示例:
+# 打印vet工具执行的命令
+go tool -n vet
+
+
+```
+
+
+## 15. version 命令 查看当前go语言版本
+
+```sh
+version 查看go当前的版本
+usage: go version
+示例:
+# 查看go当前的版本
+go version 
+```
+
+## 16. vet 命令 报告包中可能出现的错误
+```sh
+vet 静态检查工具,报告包中可能出现的错误, 开发时建议使用这个工具(fmt printf函数参数不对或者声明结构体 tag声明不对等)
+usage: go vet [-n] [-x] [build flags] [vet flags] [packages]
+用法: go vet [-n] [-x] [编译参数] [vet flags] [包]
+可选参数:
+    -n 打印要执行的命令, 但是不真正的执行
+    -x 打印执行的命令
+
+更多参数请参考(go help build)
+
+示例:
+# 检测 testmod 包中可能存在的问题
+go vet testmod 
 ```
