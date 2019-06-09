@@ -123,7 +123,8 @@ go env
 go env GOOS
 ```
 
-## 5. fix与go tool fix
+## 5. fix与go tool fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码,升级版本时非常有用
+
 ```sh
 fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码
 usage: go fix [packages]
@@ -430,6 +431,30 @@ usage: go tool [-n] command [args...]
 go tool -n vet
 
 
+```
+** go tool 工具列表 **
+```sh
+# go tool: 列表工具列表
+# go tool 工具 -h: 查看工具帮助文档
+# 查看vet工具帮助文档: go tool vet -h
+addr2line
+api
+asm
+buildid
+cgo
+compile
+cover
+dist
+doc
+fix
+link
+nm
+objdump
+pack
+pprof
+test2json
+trace
+vet
 ```
 
 
