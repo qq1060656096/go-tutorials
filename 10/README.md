@@ -123,7 +123,7 @@ go env
 go env GOOS
 ```
 
-## 
+## 5. fix与go tool fix 命令
 ```sh
 fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码
 usage: go fix [packages]
@@ -137,6 +137,33 @@ usage: go tool fix [-diff] [-r fixname,...] [-force fixname,...] [path ...]
     -diff 不将修正后的内容写入文件, 而只打印修正前后的内容的对比信息到标准输出
     -force string 使用此参数后, 即使源码文件中的代码已经与Go语言的最新版本相匹配, 也会强行执行指定的修正操作.该参数值就是需要强行执行的修正操作的名称,多个名称之间用英文半角逗号分隔
     -r string 只对目标源码文件做有限的修正操作.该参数的值即为允许的修正操作的名称.多个名称之间用英文半角逗号分隔
+```
+## 6. fmt与gofmt 命令
+> Go 开发团队不想要 Go 语言像许多其它语言那样总是在为代码风格而引发无休止的争论,浪费大量宝贵的开发时间,因此他们制作了一个工具:go fmt（gofmt）
+```sh
+fmt与gofmt 命令 格式化包中的源文件,fmt命令实际"gofmt -l -w"命令之上做了一层包装,我们一般使用
+usage: go fmt [-n] [-x] [packages]
+ 用法: go fmt [-n] [-x] 包
+ 可选参数:
+    -x 打印执行的命令
+    -n 打印执行的命令,但不真正执行
+
+示例:
+# 格式化 testmod 包, 并显示执行命令
+go fmt -x testmod
+
+
+gofmt 命令
+usage: gofmt [flags] [path ...]
+ 用法: gofmt [参数] [路径 ...]
+ 可选参数:
+    -cpuprofile string 将cpu配置文件写入此文件
+    -d 显示格式化前后差异,但不写入文件
+    -e 打印所有错误, 默认只会打印不同行的前10个错误
+    -l 列出需要格式化的文件
+    -r string 重新规则,方便我们做批量替换,例如我们需要把hellomod.Hello替换成hellomod.HelloNew("hellomod.Hello -> hellomod.HelloNew")
+    -s 简化代码
+    -w 将结果直接写入到文件中
 ```
 
 ## 13. go test
