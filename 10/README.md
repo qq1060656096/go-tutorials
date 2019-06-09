@@ -10,7 +10,7 @@
 7. generate 命令
 8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
 9. install 命令 编译并安装指定包及它们的依赖包,
-10. list 命令
+10. list 命令 列出包和模块信息
 11. mod 命令
 12. run 命令
 13. test 命令
@@ -207,6 +207,35 @@ usage: go install [-i] [build flags] [packages]
 go install github.com/gin-gonic/gin
 ```
 
+## 10. list 命令 列出包和模块信息
+```sh
+list 列出包和模块信息
+usage: go list [-f format] [-json] [-m] [list flags] [build flags] [packages]
+ 用法: go list [-f format] [-json] [-m] [list flags] [build flags] [包]
+ 可选参数:
+    -f {{.字段名}} 查看指定的字段信息
+    -json 以json格式打印信息
+    -m 列出模块信息
+更多用法请参考(go help list)
+
+示例:
+# 以json格式打印gapp包信息
+go list -json gapp
+
+# 打印模块信息
+go list -m testmod
+
+# 以json格式打印模块信息
+go list -m -json testmod 
+# testmod模块打印结果:
+{
+        "Path": "testmod",
+        "Main": true,
+        "Dir": "/Users/zhaoweijie/go/src/business-card/docker-compose/go-tutorials/9/examples/testmod",
+        "GoMod": "/Users/zhaoweijie/go/src/business-card/docker-compose/go-tutorials/9/examples/testmod/go.mod"
+}
+
+```
 
 
 ## 13. go test
