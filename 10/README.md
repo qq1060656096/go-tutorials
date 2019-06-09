@@ -3,10 +3,10 @@
 ```sh
 1. build 命令 编译包和依赖项
 2. clean 命令 删除对象文件和缓存的文件
-3. doc 命令 显示包文档
+3. doc与godoc 命令 显示包文档
 4. env 命令 打印Go语言的环境信息
-5. fix 命令
-6. fmt 命令
+5. fix与go tool fix 命令 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码,升级版本时非常有用
+6. fmt 命令 
 7. generate 命令
 8. get 命令
 9. install 命令
@@ -87,7 +87,7 @@ usage: go clean [clean flags] [build flags] [packages]
 
 ## 3. doc 命令
 ```sh
-doc 显示包或符号的文档
+doc与godoc 显示包或符号的文档, 更多用法请参考(godoc -h)
 usage: go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
  用法:  go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
  可选参数:
@@ -123,6 +123,21 @@ go env
 go env GOOS
 ```
 
+## 
+```sh
+fix 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码
+usage: go fix [packages]
+
+示例:
+go fix testmod
+
+
+go tool fix -h
+usage: go tool fix [-diff] [-r fixname,...] [-force fixname,...] [path ...]
+    -diff 不将修正后的内容写入文件, 而只打印修正前后的内容的对比信息到标准输出
+    -force string 使用此参数后, 即使源码文件中的代码已经与Go语言的最新版本相匹配, 也会强行执行指定的修正操作.该参数值就是需要强行执行的修正操作的名称,多个名称之间用英文半角逗号分隔
+    -r string 只对目标源码文件做有限的修正操作.该参数的值即为允许的修正操作的名称.多个名称之间用英文半角逗号分隔
+```
 
 ## 13. go test
 
