@@ -3,6 +3,7 @@
 ```sh
 1. build 命令 编译包和依赖项
 2. clean 命令 删除对象文件和缓存的文件
+3. doc 命令 显示包文档
 ```
 
 ## 1. build 命令
@@ -46,7 +47,7 @@ go build -n
 go build -work 
 ```
 
-2. clean 命令
+## 2. clean 命令
 ```sh
 clean 删除执行其他命令时产生的文件、目录和缓存文件.
     具体地说.clean 会删除从导入路径对应的源码目录中,删除以下这些文件和目录
@@ -69,6 +70,20 @@ usage: go clean [clean flags] [build flags] [packages]
     -x 打印clean执行的删除命令
     -cache 删除所有 go build 的缓存
     -testcache 删除当前包所有的测试结果
+```
+
+## 3. doc 命令
+```sh
+doc 显示包或符号的文档
+usage: go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
+ 用法:  go doc [-u] [-c] [package|[package.]symbol[.methodOrField]]
+ 可选参数:
+    -c 区分参数包名的大小写.默认情况下,包名是大小写不敏感的
+    -cmd 打印 main 包文档, 默认情况下不会打印 main 包文档
+    -u 打印出所有的文档(同事包含可导出和不可导出实体)
+
+# 显示 hellomod 包文档,(注意 hellomod 和 Hellomod是不同的包)
+go doc -c hellomod
 ```
 
 ###### 3. go test
