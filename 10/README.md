@@ -6,9 +6,9 @@
 3. doc与godoc 命令 显示包文档
 4. env 命令 打印Go语言的环境信息
 5. fix与go tool fix 命令 会把指定包中的所有Go语言源码文件中旧版本代码修正为新版本的代码,升级版本时非常有用
-6. fmt 命令 
+6. fmt与gofmt 命令 格式化go源文件
 7. generate 命令
-8. get 命令
+8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
 9. install 命令
 10. list 命令
 11. mod 命令
@@ -141,7 +141,7 @@ usage: go tool fix [-diff] [-r fixname,...] [-force fixname,...] [path ...]
 ## 6. fmt与gofmt 命令
 > Go 开发团队不想要 Go 语言像许多其它语言那样总是在为代码风格而引发无休止的争论,浪费大量宝贵的开发时间,因此他们制作了一个工具:go fmt（gofmt）
 ```sh
-fmt与gofmt 命令 格式化包中的源文件,fmt命令实际"gofmt -l -w"命令之上做了一层包装,我们一般使用
+fmt与gofmt 命令 格式化go源文件,fmt命令实际"gofmt -l -w"命令之上做了一层包装,我们一般使用
 usage: go fmt [-n] [-x] [packages]
  用法: go fmt [-n] [-x] 包
  可选参数:
@@ -164,7 +164,40 @@ usage: gofmt [flags] [path ...]
     -r string 重新规则,方便我们做批量替换,例如我们需要把hellomod.Hello替换成hellomod.HelloNew("hellomod.Hello -> hellomod.HelloNew")
     -s 简化代码
     -w 将结果直接写入到文件中
+    
+示例:
+# 格式当前目录代码
+gofmt -w ./
+
+# 把当前目录中的“hellomod.Hello” 替换成 "hellomod.HelloNew"
+gofmt -r "hellomod.Hello -> hellomod.HelloNew" -w ./
 ```
+
+
+## 8. get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
+```sh
+get 命令 下载并安装包和依赖(下载包和依赖,并对它们进行编译安装)
+usage: go get [-d] [-f] [-t] [-u] [-v] [-fix] [-insecure] [build flags] [packages]
+ 用法: go get [-d] [-f] [-t] [-u] [-v] [-fix] [-insecure] [build flags] [包]
+ 可选参数:
+    -d 只下载不安装(只执行下载动作, 不执行安装动作)
+    -f 只有在包含了-u参数的时候才有效.该参数会让命令程序忽略掉对已下载代码包的导入路径的检查.如果下载并安装的代码包所属的项目是你从别人那里Fork过来的,那么这样做就尤为重要了
+    -fix 会下载代码包后先执行修正动作,而后再进行编译和安装
+    -insecure 请谨慎使用, 允许使用不安全(http或者自定义域)的存储库中下载解析.
+        即:允许命令程序使用非安全的scheme（如HTTP）去下载指定的代码包.如果你用的代码仓库(如公司内部的Gitlab)没有HTTPS支持,可以添加此标记.请在确定安全的情况下使用它.
+    -t 同时也下载需要为运行测试所需要的包
+    -u 强制从网络更新包和它的依赖包.默认情况下,该命令只会从网络上下载本地不存在的代码包,而不会更新已有的代码包
+    -v 显示执行的命令
+
+示例:
+# 下载包
+go get github.com/donvito/hellomod
+```
+
+
+
+
+
 
 ## 13. go test
 
