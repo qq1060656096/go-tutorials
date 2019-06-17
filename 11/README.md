@@ -1,5 +1,7 @@
 ## 并发编程(goroutine)
 
+[参考文章](https://mingyangshang.github.io/2016/01/09/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/)
+
 ```
 1. 什么是并发?
 2. 为什么要使用并发编程?
