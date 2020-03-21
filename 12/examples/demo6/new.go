@@ -11,6 +11,7 @@ func main() {
 	fmt.Printf("slice1=%v\n", slice1)
 	fmt.Printf("slice1==nil:%v\n", slice1 == nil)
 }
+
 /*
 slice1=&[]
 slice1==nil:false

@@ -6,7 +6,7 @@ import (
 	hellomodV3 "github.com/qq1060656096/hellomod/v3"
 )
 
-func main()  {
+func main() {
 	fmt.Println(hellomod.Hello())
 	fmt.Println(hellomodV3.HelloV3())
 }

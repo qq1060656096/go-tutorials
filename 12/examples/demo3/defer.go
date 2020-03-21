@@ -9,9 +9,9 @@ func main() {
 	testDefer()
 }
 
-func testDefer()  {
+func testDefer() {
 	fmt.Println("for start")
-	for i := 1; i < 5; i ++ {
+	for i := 1; i < 5; i++ {
 		// defer 先进后出，并且函数仅在函数返回时才会执行
 		defer fmt.Println(i)
 		fmt.Println("for doing", i)
