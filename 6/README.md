@@ -58,11 +58,11 @@ tests                  测试目录
 ├─main.go       go入口文件
 
 ```
-> 1. 创建目录 mkdir tests并进入 cd tests
-> 2. 创建包文件tests/demo/demo.go
+> 1. 创建目录 mkdir -p examples/demo1/pkg1
+> 2. 创建包文件 examples/demo1/pkg1/demo.go
 ```
-// /tests/demo/demo.go
-package demo
+// examples/demo1/pkg1/demo.go
+package pkg1
 
 import "fmt"
 
@@ -70,24 +70,24 @@ import "fmt"
 func MyFirstPackage() {
 	fmt.Println("my first package")
 }
+```
 
+> 3. 创建入口文件 examples/demo1/main.go
 ```
-> 3. 创建入口文件tests/main.go
-```
-// tests/main.go
+// examples/demo1/main.go
 package main
 
 // 导入包
-import "./demo"
+import "./pkg1"
 
 func main()  {
-	// 调用demo包中的MyFirstPackage方法
-	demo.MyFirstPackage()
+	// 调用 pkg1 包中的MyFirstPackage方法
+	pkg1.MyFirstPackage()
 }
 ```
-> 4. 运行 go run main.go
+> 4. 运行 go run examples/demo1/main.go
 
-![1661559375623_.pic_hd.jpg](https://upload-images.jianshu.io/upload_images/6713312-420c3d718fd58b5c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![1661559375623_.pic_hd.jpg](./examples/demo1/images/0.jpg)
 
 ## 3. 包中的init函数
 > init函数用于包(package)的初始化,init函数会在包初始化后自动执行, init函数优先级别比main函数高.
@@ -100,39 +100,41 @@ func main()  {
 > 6. 对同一个包中同一个go源文件的init调用顺序是从上到下的
 > 7. 对多个包的init执行顺序是按照包的依赖顺序执行(如果包中引入了其他包, 则最后引入的包init最先执行)
 > 8. 包中的init函数在main包中的main函数执行之前初始化
-
+> 9. init函数没有参数和返回值
 
 **包init函数示例**
-![1671559452966_.pic_hd.jpg](https://upload-images.jianshu.io/upload_images/6713312-84cbe2c8d43ae209.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![1671559452966_.pic_hd.jpg](./examples/demo2/images/1.jpg)
 
 ```go
-// /tests/demo/demo.go
-package demo
+// examples/demo2/pkg1/pkg1.go
+package pkg1
 
 import "fmt"
-import _ "../demo2"
+import _ "../pkg2"
 
 func init() {
-	fmt.Println("demo ini")
+	fmt.Println("pkg1.init")
 }
 ```
+
 ```go
-// /tests/demo2/demo2.go
-package demo2
+// examples/demo2/pkg2/pkg2.go
+package pkg2
 
 import "fmt"
 
 func init() {
-	fmt.Println("demo2 init")
+	fmt.Println("pkg2.init")
 }
 ```
+
 ```go
-// tests/main.go
+// go run examples/demo2/main.go
 package main
 
 // 导入包
 import (
-	_ "./demo"
+	_ "./pkg1"
 	"fmt"
 )
 
@@ -144,6 +146,7 @@ func main()  {
 ## 4. main包
 > main包是go语言的可执行程序入口包.
 > main包main函数是go语言的可执行程序入口包的入口函数.
+> main函数没有参数和返回值
 
 **main包main函数特点**
 > 1. main函数是go语言生成可执行程序的入口函数
