@@ -41,13 +41,13 @@ why         explain why packages or modules are needed (解释为什么需要依
 可以用环境变量 GO111MODULE 开启或关闭模块支持，它有三个可选值：off、on、auto,默认值是 auto.
 1. GO111MODULE=off 无模块支持,go 会从 GOPATH 和 vendor 文件夹寻找包.
 2. GO111MODULE=on 模块支持,go 会忽略 GOPATH 和 vendor 文件夹,只根据 go.mod 下载依赖.
-3. GO111MODULE=auto 在 GOPATH/src 外面且根目录有 go.mod 文件时,开启模块支持.
-
+3. GO111MODULE=auto 如果找到任何go.mod,即使在GOPATH内部也开启模块支持.
+(注意: 在Go 1.13之前，GO111MODULE=auto永远不会在GOPATH中启用模块模式).
 ```
 
 ### 2. go模块使用说明
 ```sh
-1. GO111MODULE=off, 把项目放到$GOPATH/src之外, 或者设置GO111MODULE=on, 把项目放到任意目录
+1. (GO111MODULE=off,把项目放到$GOPATH/src之外)或者(设置GO111MODULE=on,把项目放到任意目录)即可激活模块模式
 2. 在项目目录下创建模块: "go mod init 模块名",创建模块后,会在模块所在的文件夹生成go.mod文件
 3. 然后在项目目录下运行命令: "go build" 、"go test" 或 "go run"执行时，会自己去修改go.mod文件，生成"go.sum"文件
 ```
