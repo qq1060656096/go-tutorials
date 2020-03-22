@@ -9,6 +9,7 @@
 
 ## 1. 什么是包
 > 包是把相似或相关的功能放在一起,方便管理代码和避免命名冲突
+![go包初始哈顺序](./examples/images/go.package.init.jpeg)
 
 **包作用**
 ```go
