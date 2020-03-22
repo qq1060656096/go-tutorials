@@ -85,6 +85,45 @@ name, age := nameReturnVariables(0)
 name, age := nameReturnVariables(1)
 // name = "静静"
 // age = 18
+
+```
+```go
+// 示例6：参数都是值传递, 也就是函数接收的是传递参数的副本, 如果参数是指针, 指针的值(内存地址)会被复制, 但是指针所指向的地址不会被复制
+// go run 5/examples/demo6/func_value_passed.go
+package main
+
+import "fmt"
+
+func main()  {
+	var i int
+	var pi *int
+
+	pi = &i
+	fmt.Printf("%16s pi=%d \n", "", &pi)
+	pointValuePassed(pi)
+
+	fmt.Println()
+	fmt.Printf("%17s i=%d \n", "", &i)
+	normalValuePassed(i)
+}
+
+func pointValuePassed(pi *int)  {
+	fmt.Printf("pointValuePassed.pi=%d \n", &pi)
+}
+
+func normalValuePassed(i int)  {
+	fmt.Printf("normalValuePassed.i=%d \n", &i)
+}
+
+/*
+pointValuePassed外的pi和pointValuePassed内的pi指针地址不一样证明是值传递
+                 pi=824634335240 
+pointValuePassed.pi=824633778200 
+
+normalValuePassed外的i和normalValuePassed内的i指针地址不一样证明是值传递
+                  i=824634417152 
+normalValuePassed.i=824633827512
+*/
 ```
 
 ## 2. 匿名(闭包)函数
