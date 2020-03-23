@@ -99,7 +99,7 @@ cd examples/demo1
 # 运行测试
 go test -v
 ```
-![功能测试结果](./images/examples.demo1.run.test.result.jpg)
+![功能测试结果](images/examples.demo1.run.test.result.jpg)
 
 ## 2. Benchmark 基准测试函数
 > 1. 基准测试可以测试一段程序在给定的工作负载下检测程序性能的一种方法, 可以测试一段程序的运行性能及耗费CPU的成都.
@@ -125,7 +125,7 @@ cd examples/demo2
 go test -bench=. -v
 
 ```
-![基准测试结果](./images/examples.demo2.run.bench.result.jpg)
+![基准测试结果](images/examples.demo2.run.bench.result.jpg)
 
 ## 3. Example示例函数
 > Example示例函数主要目的作为文档, 与带注释的示例不同的是, Example示例函数是真实的go语言代码, 必须通过编译时检查,所以随着代码的进化它们也不会过时
@@ -148,7 +148,7 @@ cd examples/demo3
 go test -v
 
 ```
-![示例函数执行结果](./images/examples.demo3.run.example.result.jpg)
+![示例函数执行结果](images/examples.demo3.run.example.result.jpg)
 
 ## 4. 使用流行开源的测试包(github.com/stretchr/testify)
 
@@ -166,7 +166,7 @@ cd examples/demo4
 go test -v
 
 ```
-![第三方测试包断言结果](./images/examples.demo4.other_test.result.jpg)
+![第三方测试包断言结果](images/examples.demo4.other_test.result.jpg)
 
 
 ## 5. 白盒测试
@@ -250,7 +250,7 @@ cd examples/demo5
 go test -v
 
 ```
-![白盒测试结果](./images/examples.demo5.test.result.jpg)
+![白盒测试结果](images/examples.demo5.test.result.jpg)
 
 ## 6. 代码覆盖率
 > 1. 从本质上来讲, 测试是发现bug, 而不是证明没有bug, 无论有多少个测试都无法证明是没有bug的.

@@ -9,7 +9,7 @@
 
 ## 1. 什么是包
 > 包是把相似或相关的功能放在一起,方便管理代码和避免命名冲突
-![go包初始哈顺序](./examples/images/go.package.init.jpeg)
+![go包初始哈顺序](examples/images/go.package.init.jpeg)
 
 **包作用**
 ```go
@@ -88,7 +88,7 @@ func main()  {
 ```
 > 4. 运行 go run examples/demo1/main.go
 
-![1661559375623_.pic_hd.jpg](./examples/demo1/images/0.jpg)
+![1661559375623_.pic_hd.jpg](examples/demo1/images/0.jpg)
 
 ## 3. 包中的init函数
 > init函数用于包(package)的初始化,init函数会在包初始化后自动执行, init函数优先级别比main函数高.
@@ -104,7 +104,7 @@ func main()  {
 > 9. init函数没有参数和返回值
 
 **包init函数示例**
-![1671559452966_.pic_hd.jpg](./examples/demo2/images/1.jpg)
+![1671559452966_.pic_hd.jpg](examples/demo2/images/1.jpg)
 
 ```go
 // examples/demo2/pkg1/pkg1.go

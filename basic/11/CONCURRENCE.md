@@ -183,4 +183,4 @@
 
 **操作系统3种线程模型如下图**
 
-![操作系统3种线程模型](./images/thread.3.model.jpg)
+![操作系统3种线程模型](images/thread.3.model.jpg)
