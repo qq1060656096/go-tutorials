@@ -87,8 +87,7 @@ debug.SetMaxThreads()
 runtime.GC()
 debug.FreeOSMemory()
 
-// 等待
-sync.WaitGroup{}
-sync.Mutex{}
-sync.RWMutex{}
+sync.WaitGroup{}// WaitGroup等待goroutine的集合完成
+sync.Mutex{}// 互斥锁
+sync.RWMutex{}// 读写锁
 ```

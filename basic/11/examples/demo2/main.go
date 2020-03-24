@@ -12,7 +12,8 @@ func main() {
 	// 所以正常输出
 	time.Sleep(1 * time.Second)
 }
+
 /**
 输出以下内容:
 Go Goroutine Hello World!%
- */
+*/
