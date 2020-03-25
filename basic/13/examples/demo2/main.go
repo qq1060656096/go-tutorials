@@ -1,10 +1,14 @@
 package main
 
 /*
-#cgo CFLAGS: -I lib
-#cgo LDFLAGS: -L lib -l demolib
-#include "demo_lib.h"
- */
+
+#cgo CFLAGS: -I./lib
+
+#cgo LDFLAGS: -L./lib -l demo -v
+
+#include "demo.h"
+
+*/
 import "C"// 切勿换行再写这个
 
 import "fmt"
