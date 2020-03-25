@@ -13,8 +13,8 @@
 * **已定稿** [10. 命令详解](basic/10/README.md)
 * **已撰写** [11. 并发编程(goroutine)](basic/11/README.md)
 * **已撰写** [12. 常见的错误与陷阱](basic/12/README.md)
-* **未撰写** [13. go+c混合开发]()
-* **未撰写** [14. go+php混合开发]()
+* **已撰写** [13. go + c 混合开发](basic/13/README.md)
+* **已撰写** [14. go + php 混合开发](basic/14/README.md)
 
 ### 理论篇
 
