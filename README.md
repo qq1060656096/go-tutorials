@@ -11,9 +11,9 @@
 * **已定稿** [8. 测试](basic/8/README.md)
 * **已定稿** [9. mod模块(Modules)使用](basic/9/README.md)
 * **已定稿** [10. 命令详解](basic/10/README.md)
-* **已撰写** [11. 并发编程(goroutine)](basic/11/README.md)
-* **已撰写** [12. 常见的错误与陷阱](basic/12/README.md)
-* **已撰写** [13. go + c 混合开发](basic/13/README.md)
+* **已定稿** [11. 并发编程(goroutine)](basic/11/README.md)
+* **已定稿** [12. 常见的错误与陷阱](basic/12/README.md)
+* **已定稿** [13. go + c 混合开发](basic/13/README.md)
 * **已撰写** [14. go + php 混合开发](basic/14/README.md)
 
 ### 理论篇
