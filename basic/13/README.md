@@ -24,18 +24,18 @@ c hello !%
 ### 2. 导入动态库 .so 或 dll 的形式, 最安全但是很不爽也比较慢的
 ```
 1.编译动态链接库
-gcc -c examples/demo2/lib/demo_lib.c -o examples/demo2/lib/demo_lib.o
-
-gcc -c -fpic examples/demo2/lib/demo_lib.c -o examples/demo2/lib/demo_lib.o
-
-gcc -shared examples/demo2/lib/demo_lib.o -o examples/demo2/lib/demo_lib.so
-
-gcc examples/demo2/lib/demo.c -fPIC -shared -o examples/demo2/lib/demo.so
-
-gcc -shared -o examples/demo2/lib/demo_lib.so examples/demo2/lib/demo_lib.o
+gcc examples/demo2/clib/demo.c -fPIC -shared -o examples/demo2/clib/libdemo.so
 
 2. go中通过注释指明动态链接库路径
-3. go中使用动态链接库
+/*
+#cgo CFLAGS: -I./clib
+// 这里如果使用gcc编译动态链接库名不是lib开头的提示找不到 "ld: library not found for -ldemo"
+#cgo LDFLAGS: -L./clib -l demo
+#include "demo.h"
+*/
+import "C"// 切勿换行再写这个
+
+3. 运行代码
 go run examples/demo2/main.go
 ```
 
