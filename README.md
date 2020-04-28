@@ -32,7 +32,7 @@
 
 ### 工具篇
 
-* **已定稿** [1. redis lua脚本](tools/redis)
+* **已定稿** [1. redis lua脚本(分布式锁)](tools/redis)
 
 
 ### 常用包
