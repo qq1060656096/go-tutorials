@@ -25,19 +25,27 @@
 * **已撰写** [5. MYSQL](dev/5)
 
 ### 数据结构与算法
+* **未撰写** [1. 数据结构介绍](algo/1)
+* **未撰写** [2. 时间复杂度与空间复杂度](algo/2)
+* **未撰写** [2. 时间复杂度与空间复杂度](algo/2)
+
+
+### 工具篇
+
+* **已定稿** [1. redis lua脚本](tools/redis)
 
 
 ### 常用包
 
-[单元测试](https://github.com/stretchr/testify)
-[jwt](https://github.com/dgrijalva/jwt-go)
-[env](https://github.com/joho/godotenv)
-[日志](https://github.com/sirupsen/logrus)
-[redis](https://github.com/go-redis/redis)
+> 1. [单元测试](https://github.com/stretchr/testify)
+> 2. [jwt](https://github.com/dgrijalva/jwt-go)
+> 3. [env](https://github.com/joho/godotenv)
+> 4. [日志](https://github.com/sirupsen/logrus)
+> 5. [redis](https://github.com/go-redis/redis)
 
 ###### web框架
-[gin](https://github.com/gin-gonic/gin)
-[beego](https://github.com/astaxie/beego)
+> 1. [gin](https://github.com/gin-gonic/gin)
+> 2. [beego](https://github.com/astaxie/beego)
 
 ###### 数据库
-[https://github.com/jinzhu/gorm](https://github.com/jinzhu/gorm)
+> 1. [https://github.com/jinzhu/gorm](https://github.com/jinzhu/gorm)
