@@ -33,6 +33,7 @@
 ### 工具篇
 
 * **已定稿** [1. redis lua脚本(分布式锁)](tools/redis)
+* **已定稿** [2. 并发执行shell脚本(Api接口测试)](tools/shell/concurrency/README.md)
 
 
 ### 常用包
