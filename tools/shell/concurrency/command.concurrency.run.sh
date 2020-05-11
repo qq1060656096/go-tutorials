@@ -26,8 +26,8 @@ function concurrentRunCommand() {
     commandLog=$3
     for (( i = 1; i <= ${runNumber}; i++ ));
     do
-        `${runCommand} >> ${commandLog}.${i}.log`
-    done&
+        `${runCommand} >> ${commandLog}.${i}.log`&
+    done
    
 }
 
