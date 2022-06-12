@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+//包名格式："公司名.服务名.版本号"
+package google.accounts.v1;
+option go_package = "google/accounts/v1";
+
+service Login {
+  rpc AccountLogin (LoginRequest) returns (LoginResponse);
+  rpc ForgetPassword(ForgetPasswordRequest) returns (ForgetPasswordResponse);
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
+}
+
+message LoginRequest {
+  string AccountName = 1;
+  string Password = 2;
+}
+
+message LoginResponse {
+  string AccountName = 1;
+}
+
+message ForgetPasswordRequest {
+  string AccountName = 1;
+}
+
+message ForgetPasswordResponse {
+  string AccountName = 1;
+}
+
+message ResetPasswordRequest {
+
+}
+
+message ResetPasswordResponse {
+
+}
