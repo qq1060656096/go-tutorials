@@ -9,8 +9,8 @@ layoutv2          根目录
 │     ├─accounts            服务名（这里演示服务名：账户服务）
 │       ├─v1                    服务v1版本
 │       ├─v2                    服务v2版本
-├─cmd               命令存放目录
-│  ├─account-bff        bff 对外的 BFF 服务，接受来自用户的请求，比如暴露了 HTTP/gRPC 接口
+├─cmd               命令存放目录本质负责启动、关闭、配置、初始化等
+│  ├─account-interface  对外的 BFF 服务，接受来自用户的请求，比如暴露了 HTTP/gRPC 接口
 │  ├─accounts-admin     admin 更多是面向运营测的服务，通常数据权限更高，隔离带来更好的代码级别安全。
 │  ├─accounts-job       常驻任务，消费消息中间件
 │  ├─accounts-service   service 对内的微服务，仅接受来自内部其他服务或者网关的请求，比如暴露了gRPC 接口只对内服务。
