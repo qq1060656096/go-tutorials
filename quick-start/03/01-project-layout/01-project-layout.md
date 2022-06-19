@@ -10,11 +10,11 @@ layoutv2          根目录
 │       ├─v1                    服务v1版本
 │       ├─v2                    服务v2版本
 ├─cmd               命令存放目录本质负责启动、关闭、配置、初始化等
-│  ├─account-interface  对外的 BFF 服务，接受来自用户的请求，比如暴露了 HTTP/gRPC 接口
+│  ├─account-api        对外的 API 服务，接受来自用户的请求，比如暴露了 HTTP/gRPC 接口
 │  ├─accounts-admin     admin 更多是面向运营测的服务，通常数据权限更高，隔离带来更好的代码级别安全。
 │  ├─accounts-job       常驻任务，消费消息中间件
 │  ├─accounts-service   service 对内的微服务，仅接受来自内部其他服务或者网关的请求，比如暴露了gRPC 接口只对内服务。
-│  ├─accounts-task      定时任务，类似 cronjob
+│  ├─accounts-cron      定时任务，类似 cronjob
 ├─configs           配置文件模板或默认配置，比如database.yaml、redis.yaml、application.yaml。，比如database.yaml、redis.yaml、application.yaml 等
 ├─internal          应用私有库代码（您不希望其他人在其应用程序或库中导入的代码。请注意，这种布局模式是由 Go 编译器本身强制执行的。）
 │  ├─accounts           账号服务目录（/internal/app 我们们习惯把相关的服务放在单独的一个目录）
