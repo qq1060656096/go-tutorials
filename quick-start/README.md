@@ -62,12 +62,32 @@
 * **未撰写** [14. 实战演练](06/10/README.md)
 
 
-
 ### 6. 数据库
+* **已撰写** [MySQL索引](development/database/mysql/index.md)
+* **已撰写** [MySQL锁](development/database/mysql/lock.md)
+* **已撰写** [MySQL事物](development/database/mysql/transaction.md)
+* **已撰写** [MySQL JSON字段类型](development/database/mysql/field.json.md)
 
 ### 7. 缓存
 
 ### 8. 消息队列
 
+### 9. 常用设计模式
 
-### 9. 常见第三方库
+* **未撰写** [01. 设计模式：单例](06/10/README.md)
+* **未撰写** [02. 设计模式：简单工厂](06/10/README.md)
+* **未撰写** [03. 设计模式：工厂方法](06/10/README.md)
+* **未撰写** [04. 设计模式：抽象工厂](06/10/README.md)
+* **未撰写** [05. 设计模式：建造者](06/10/README.md)
+* **未撰写** [06. 设计模式：适配器](06/10/README.md)
+* **未撰写** [07. 设计模式：门面](06/10/README.md)
+* **未撰写** [08. 设计模式：代理](06/10/README.md)
+* **未撰写** [09. 设计模式：观察者](06/10/README.md)
+
+* **设计模式七大原则** [设计模式七大原则](development/database/mysql/index.md)
+
+* **未撰写** [实战演练设计模式：购物车](06/10/README.md)
+
+
+
+### 10. 安全编程
